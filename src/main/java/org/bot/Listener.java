@@ -11,8 +11,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Listener extends ListenerAdapter {
-    private static final Logger log = LoggerFactory.getLogger(Listener.class);
-
     @Override
     public void onReady(@NotNull ReadyEvent event) {
         super.onReady(event);
@@ -23,5 +21,7 @@ public class Listener extends ListenerAdapter {
         guild.upsertCommand("join", "Bot joins the voice channel, in which the user currently is").queue();
         guild.upsertCommand("play", "Plays a song, if it is found online").
                 addOptions(new OptionData(OptionType.STRING, "audio", "song name", true)).queue();
+        guild.upsertCommand("leave", "Bot leaves the voice channel").queue();
+        guild.upsertCommand("stop", "Bot stops playing audio").queue();
     }
 }
