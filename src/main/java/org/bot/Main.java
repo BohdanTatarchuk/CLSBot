@@ -9,7 +9,7 @@ import org.bot.commands.StopCommand;
 
 public class Main {
     public static void main(String[] args) {
-        String token = ConfigUtil.getToken();
+        String token = Util.getToken();
         JDABuilder builder = JDABuilder.createDefault(token);
         builder.enableIntents(GatewayIntent.MESSAGE_CONTENT, GatewayIntent.GUILD_MESSAGES, GatewayIntent.GUILD_VOICE_STATES);
         builder.addEventListeners(new Listener());
